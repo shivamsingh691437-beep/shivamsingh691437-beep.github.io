@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Environmental Pollution — Types, Causes & Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --dark: #1B4332;
+    --mid: #2D6A4F;
+    --light: #52B788;
+    --pale: #D8F3DC;
+    --accent: #F4A261;
+    --accent2: #E76F51;
+    --red: #D62828;
+    --blue: #023E8A;
+    --brown: #6B4226;
+    --yellow: #F9C74F;
+    --white: #FFFFFF;
+    --off: #F8F9FA;
+    --gray: #6C757D;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0e2a1e;
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(14,42,30,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(82,183,136,0.2);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--light); letter-spacing: 0.02em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 7rem 2.5rem 4rem;
+    position: relative;
+    background: linear-gradient(135deg, #0e2a1e 0%, #1B4332 60%, #2D6A4F 100%);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(82,183,136,0.18) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(82,183,136,0.12) 0%, transparent 70%);
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-block;
+    background: var(--accent); color: #fff;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+    padding: 0.35rem 1rem; border-radius: 2px;
+    margin-bottom: 1.5rem; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    line-height: 1.0;
+    font-weight: 900;
+  }
+  .hero h1 span { color: var(--light); display: block; }
+  .hero-sub {
+    font-size: 1.25rem; color: rgba(255,255,255,0.55);
+    font-style: italic; margin: 1.5rem 0 0.75rem;
+    font-family: 'Playfair Display', serif;
+  }
+  .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.5); max-width: 500px; line-height: 1.7; }
+  .hero-scroll {
+    margin-top: 3rem; display: flex; align-items: center; gap: 0.75rem;
+    color: rgba(255,255,255,0.4); font-size: 0.8rem; letter-spacing: 0.1em;
+  }
+  .hero-scroll::before {
+    content: ''; display: block; width: 40px; height: 1px; background: currentColor;
+  }
+
+  /* ── STATS BAR ── */
+  .stats {
+    background: var(--dark);
+    padding: 3rem 2.5rem;
+    border-top: 1px solid rgba(82,183,136,0.15);
+    border-bottom: 1px solid rgba(82,183,136,0.15);
+  }
+  .stats-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; font-weight: 900;
+    line-height: 1;
+  }
+  .stat-num.red { color: var(--accent2); }
+  .stat-num.blue { color: #60B4FF; }
+  .stat-num.green { color: var(--light); }
+  .stat-num.brown { color: var(--yellow); }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.4rem; line-height: 1.4; }
+
+  /* ── SECTION HEADER ── */
+  section { padding: 5rem 2.5rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--light); font-weight: 600; margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .section-desc { color: rgba(255,255,255,0.5); font-size: 1rem; max-width: 600px; line-height: 1.7; margin-bottom: 3rem; }
+
+  /* ── WHAT IS SECTION ── */
+  .what-is { background: #112d1f; }
+  .what-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+  .definition-block {
+    background: rgba(82,183,136,0.08);
+    border: 1px solid rgba(82,183,136,0.25);
+    border-left: 4px solid var(--light);
+    padding: 2rem; border-radius: 4px;
+    font-style: italic; font-size: 1.05rem; line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2rem;
+  }
+  .stat-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; padding: 1.25rem;
+    border-left: 3px solid;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-2px); background: rgba(255,255,255,0.07); }
+  .stat-card .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; line-height: 1; }
+  .stat-card .lbl { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; line-height: 1.4; }
+
+  /* ── TYPES ── */
+  .types-section { background: #0e2a1e; }
+  .types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .type-card {
+    border-radius: 10px; overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+  .type-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .type-header { padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+  .type-emoji { font-size: 1.5rem; }
+  .type-title { font-weight: 600; font-size: 1rem; }
+  .type-body { padding: 1rem 1.25rem 1.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+  /* ── POLLUTION DETAILS ── */
+  .detail-section { padding: 5rem 2.5rem; }
+  .detail-section:nth-child(odd) { background: #112d1f; }
+  .detail-section:nth-child(even) { background: #0e2a1e; }
+  .detail-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .col-header {
+    padding: 0.75rem 1.25rem; border-radius: 6px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 1rem; text-align: center;
+  }
+  .cause-header { background: var(--accent2); }
+  .effect-header { background: var(--blue); }
+  .list-item {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.5;
+  }
+  .list-item:last-child { border-bottom: none; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 0.45rem; }
+  .fact-bar {
+    grid-column: 1 / -1;
+    background: rgba(82,183,136,0.1);
+    border: 1px solid rgba(82,183,136,0.3);
+    border-radius: 6px; padding: 1rem 1.5rem;
+    font-size: 0.9rem; color: var(--light); font-weight: 500;
+  }
+
+  /* ── SOLUTIONS ── */
+  .solutions-section { background: var(--dark); }
+  .sol-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+  .sol-card {
+    padding: 1.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    border-left: 4px solid;
+    transition: transform 0.2s;
+  }
+  .sol-card:hover { transform: translateY(-3px); }
+  .sol-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .sol-card p { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* ── 3RS ── */
+  .rs-section { background: #0e2a1e; }
+  .rs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .r-card { text-align: center; padding: 2.5rem 1.5rem; }
+  .r-circle {
+    width: 90px; height: 90px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem; margin: 0 auto 1.25rem;
+  }
+  .r-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .r-card p { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+  .green-bar {
+    background: rgba(244,162,97,0.15);
+    border: 1px solid rgba(244,162,97,0.3);
+    border-radius: 6px; padding: 1rem 1.5rem;
+    text-align: center; font-size: 0.85rem;
+    color: var(--accent); font-weight: 500;
+    letter-spacing: 0.02em; margin-top: 2rem;
+  }
+
+  /* ── SECTORS ── */
+  .sectors-section { background: #112d1f; }
+  .sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .sector-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
+  .sector-header { padding: 1rem 1.25rem; }
+  .sector-header h3 { font-size: 1rem; font-weight: 600; }
+  .sector-body { padding: 1rem 1.25rem 1.5rem; }
+  .sector-item {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.5;
+  }
+  .sector-item:last-child { border-bottom: none; }
+  .sector-item::before { content: '→'; color: var(--light); flex-shrink: 0; font-size: 0.75rem; margin-top: 0.15rem; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(135deg, #1B4332 0%, #0e2a1e 100%);
+    padding: 7rem 2.5rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(82,183,136,0.08) 0%, transparent 70%);
+  }
+  .cta-section .section-inner { position: relative; z-index: 1; }
+  .cta-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.3;
+    max-width: 750px; margin: 0 auto 1rem;
+  }
+  .cta-quote em { color: var(--light); font-style: italic; }
+  .divider { width: 80px; height: 2px; background: var(--light); margin: 2rem auto; }
+  .cta-sub { font-size: 1rem; color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; }
+  .cta-actions {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    justify-content: center; list-style: none;
+  }
+  .cta-actions li {
+    background: rgba(82,183,136,0.1);
+    border: 1px solid rgba(82,183,136,0.25);
+    border-radius: 40px; padding: 0.6rem 1.5rem;
+    font-size: 0.9rem; color: rgba(255,255,255,0.8);
+  }
+  .cta-urgency {
+    margin-top: 2.5rem;
+    font-style: italic; color: var(--accent);
+    font-family: 'Playfair Display', serif; font-size: 1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a1f14;
+    text-align: center; padding: 2rem;
+    font-size: 0.8rem; color: rgba(255,255,255,0.25);
+    border-top: 1px solid rgba(82,183,136,0.1);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.25s; }
+  .delay-3 { animation-delay: 0.4s; }
+  .delay-4 { animation-delay: 0.55s; }
+
+  @media (max-width: 768px) {
+    .stats-grid, .types-grid, .detail-layout, .sol-cards, .rs-grid, .sector-grid { grid-template-columns: 1fr; }
+    .what-layout { grid-template-columns: 1fr; }
+    nav { padding: 1rem; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🌿 EnviroAware</div>
+  <ul class="nav-links">
+    <li><a href="#what">About</a></li>
+    <li><a href="#types">Types</a></li>
+    <li><a href="#air">Air</a></li>
+    <li><a href="#water">Water</a></li>
+    <li><a href="#solutions">Solutions</a></li>
+    <li><a href="#act">Take Action</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag fade-up">Awareness Presentation</div>
+    <h1 class="fade-up delay-1">Environmental<span>Pollution</span></h1>
+    <p class="hero-sub fade-up delay-2">Types · Causes · Solutions</p>
+    <p class="hero-desc fade-up delay-3">Protecting our planet for future generations. Learn about the crisis threatening every living being on Earth — and what we can do about it.</p>
+    <div class="hero-scroll fade-up delay-4">Scroll to explore</div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num red">9M+</div>
+      <div class="stat-label">deaths per year from pollution</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num blue">90%</div>
+      <div class="stat-label">of world breathes polluted air</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num green">8M</div>
+      <div class="stat-label">tons of plastic enters oceans yearly</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num brown">40%</div>
+      <div class="stat-label">of rivers are heavily polluted</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS POLLUTION -->
+<section class="what-is" id="what">
+  <div class="section-inner">
+    <div class="section-tag">Definition</div>
+    <h2 class="section-title">What is Pollution?</h2>
+    <p class="section-desc">A global crisis affecting every living being on the planet.</p>
+    <div class="what-layout">
+      <div>
+        <div class="definition-block">
+          Pollution is the introduction of harmful substances or contaminants into the natural environment, causing adverse changes that endanger living organisms and ecosystems.
+        </div>
+      </div>
+      <div class="stat-cards">
+        <div class="stat-card" style="border-color: var(--accent2);">
+          <div class="num" style="color:var(--accent2)">9M+</div>
+          <div class="lbl">deaths per year from pollution</div>
+        </div>
+        <div class="stat-card" style="border-color: #60B4FF;">
+          <div class="num" style="color:#60B4FF">90%</div>
+          <div class="lbl">of world breathes polluted air</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--light);">
+          <div class="num" style="color:var(--light)">8M</div>
+          <div class="lbl">tons of plastic enter oceans yearly</div>
+        </div>
+        <div class="stat-card" style="border-color: var(--yellow);">
+          <div class="num" style="color:var(--yellow)">40%</div>
+          <div class="lbl">of rivers are heavily polluted</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPES -->
+<section class="types-section" id="types">
+  <div class="section-inner">
+    <div class="section-tag">Overview</div>
+    <h2 class="section-title">Types of Environmental Pollution</h2>
+    <p class="section-desc">Six major categories of pollution threaten our natural world.</p>
+    <div class="types-grid">
+      <div class="type-card">
+        <div class="type-header" style="background:rgba(2,62,138,0.5)">
+          <span class="type-emoji">💨</span>
+          <span class="type-title">Air Pollution</span>
+        </div>
+        <div class="type-body">Contamination of the atmosphere by gases, smoke, and chemicals from vehicles, industry, and more.</div>
+      </div>
+      <div class="type-card">
+        <div class="type-header" style="background:rgba(45,106,79,0.5)">
+          <span class="type-emoji">💧</span>
+          <span class="type-title">Water Pollution</span>
+        </div>
+        <div class="type-body">Contamination of water bodies by chemicals, sewage, and plastic waste harming aquatic life.</div>
+      </div>
+      <div class="type-card">
+        <div class="type-header" style="background:rgba(107,66,38,0.5)">
+          <span class="type-emoji">🌱</span>
+          <span class="type-title">Soil Pollution</span>
+        </div>
+        <div class="type-body">Degradation of earth's surface by chemicals, industrial waste, and excessive pesticide use.</div>
+      </div>
+      <div class="type-card">
+        <div class="type-header" style="background:rgba(231,111,81,0.4)">
+          <span class="type-emoji">🔊</span>
+          <span class="type-title">Noise Pollution</span>
+        </div>
+        <div class="type-body">Excessive noise from traffic, industry, and urbanization disrupting human and wildlife wellbeing.</div>
+      </div>
+      <div class="type-card">
+        <div class="type-header" style="background:rgba(249,199,79,0.25)">
+          <span class="type-emoji">💡</span>
+          <span class="type-title">Light Pollution</span>
+        </div>
+        <div class="type-body">Excessive artificial light at night disrupting natural ecosystems and human sleep cycles.</div>
+      </div>
+      <div class="type-card">
+        <div class="type-header" style="background:rgba(214,40,40,0.4)">
+          <span class="type-emoji">♻️</span>
+          <span class="type-title">Plastic Pollution</span>
+        </div>
+        <div class="type-body">Plastic waste accumulating across land and water environments, persisting for centuries.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AIR POLLUTION -->
+<section class="detail-section" id="air">
+  <div class="section-inner">
+    <div class="section-tag">Type 01</div>
+    <h2 class="section-title">💨 Air Pollution</h2>
+    <p class="section-desc">The most widespread form of pollution, affecting billions every day.</p>
+    <div class="detail-layout">
+      <div>
+        <div class="col-header cause-header">Causes</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Burning fossil fuels — vehicles and power plants</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Industrial emissions & factory smoke</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Agricultural activities (pesticides, burning)</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Construction dust & debris</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Wildfires</div>
+      </div>
+      <div>
+        <div class="col-header effect-header">Effects</div>
+        <div class="list-item"><span class="dot" style="background:#60B4FF"></span> Respiratory diseases — asthma, lung cancer</div>
+        <div class="list-item"><span class="dot" style="background:#60B4FF"></span> Climate change & global warming</div>
+        <div class="list-item"><span class="dot" style="background:#60B4FF"></span> Acid rain damaging forests & buildings</div>
+        <div class="list-item"><span class="dot" style="background:#60B4FF"></span> Ozone layer depletion</div>
+        <div class="list-item"><span class="dot" style="background:#60B4FF"></span> Smog affecting visibility & health</div>
+      </div>
+      <div class="fact-bar">⚡ Air pollution causes 7 million premature deaths globally every year — WHO</div>
+    </div>
+  </div>
+</section>
+
+<!-- WATER POLLUTION -->
+<section class="detail-section" id="water">
+  <div class="section-inner">
+    <div class="section-tag">Type 02</div>
+    <h2 class="section-title">💧 Water Pollution</h2>
+    <p class="section-desc">Contaminated water threatens billions without access to safe drinking water.</p>
+    <div class="detail-layout">
+      <div>
+        <div class="col-header cause-header">Causes</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Industrial discharge of chemicals into rivers</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Untreated sewage & wastewater</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Agricultural runoff — fertilizers, pesticides</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Oil spills in oceans</div>
+        <div class="list-item"><span class="dot" style="background:var(--accent2)"></span> Plastic waste dumped in water bodies</div>
+      </div>
+      <div>
+        <div class="col-header effect-header">Effects</div>
+        <div class="list-item"><span class="dot" style="background:var(--light)"></span> Contaminated drinking water causing diseases</div>
+        <div class="list-item"><span class="dot" style="background:var(--light)"></span> Death of aquatic life & marine ecosystems</div>
+        <div class="list-item"><span class="dot" style="background:var(--light)"></span> Eutrophication — harmful algal blooms</div>
+        <div class="list-item"><span class="dot" style="background:var(--light)"></span> Bioaccumulation of toxins in food chain</div>
+        <div class="list-item"><span class="dot" style="background:var(--light)"></span> Loss of biodiversity in water habitats</div>
+      </div>
+      <div class="fact-bar">⚡ 2.2 billion people lack access to safe drinking water worldwide — UNICEF 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOIL & PLASTIC -->
+<section class="detail-section" id="soil">
+  <div class="section-inner">
+    <div class="section-tag">Types 03 & 06</div>
+    <h2 class="section-title">🌱 Soil & ♻️ Plastic Pollution</h2>
+    <p class="section-desc">Hidden threats poisoning our land and accumulating for centuries.</p>
+    <div class="detail-layout">
+      <div>
+        <div class="col-header" style="background:var(--brown)">Soil — Causes</div>
+        <div class="list-item"><span class="dot" style="background:var(--yellow)"></span> Excessive use of chemical fertilizers</div>
+        <div class="list-item"><span class="dot" style="background:var(--yellow)"></span> Improper disposal of industrial waste</div>
+        <div class="list-item"><span class="dot" style="background:var(--yellow)"></span> Mining operations & heavy metals</div>
+        <div class="list-item"><span class="dot" style="background:var(--yellow)"></span> Pesticide & herbicide overuse</div>
+        <br>
+        <div class="col-header" style="background:rgba(107,66,38,0.7); margin-top:1rem">Soil — Effects</div>
+        <div class="list-item"><span class="dot" style="background:var(--yellow)"></span> Loss of soil fertility & crop yields</div>
+        <div class="list-item"><span class="dot" style="background:var(--yellow)"></span> Groundwater contamination</div>
+        <div class="list-item"><span class="dot" style="background:var(--yellow)"></span> Harm to soil organisms & biodiversity</div>
+      </div>
+      <div>
+        <div class="col-header" style="background:var(--red)">Plastic — Causes</div>
+        <div class="list-item"><span class="dot" style="background:#FF7070"></span> Single-use plastic overproduction</div>
+        <div class="list-item"><span class="dot" style="background:#FF7070"></span> Poor waste management systems</div>
+        <div class="list-item"><span class="dot" style="background:#FF7070"></span> Illegal dumping in oceans & rivers</div>
+        <div class="list-item"><span class="dot" style="background:#FF7070"></span> Microplastics from synthetic clothing</div>
+        <br>
+        <div class="col-header" style="background:rgba(214,40,40,0.6); margin-top:1rem">Plastic — Effects</div>
+        <div class="list-item"><span class="dot" style="background:#FF7070"></span> Marine animal entanglement & ingestion</div>
+        <div class="list-item"><span class="dot" style="background:#FF7070"></span> Microplastics entering human food chain</div>
+        <div class="list-item"><span class="dot" style="background:#FF7070"></span> Centuries of environmental persistence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="solutions-section" id="solutions">
+  <div class="section-inner">
+    <div class="section-tag">What We Can Do</div>
+    <h2 class="section-title">Solutions & Strategies</h2>
+    <p class="section-desc">Tackling pollution requires action at every level — government, industry, and individuals.</p>
+    <div class="sol-cards">
+      <div class="sol-card" style="border-left-color:var(--accent)">
+        <h3 style="color:var(--accent)">🏛 Government Policy</h3>
+        <p>Strict emission regulations, plastic bans, renewable energy mandates, and international climate agreements to drive systemic change.</p>
+      </div>
+      <div class="sol-card" style="border-left-color:var(--light)">
+        <h3 style="color:var(--light)">🏭 Industry Change</h3>
+        <p>Clean production technologies, sustainable manufacturing, zero-waste practices, and carbon-neutral supply chains.</p>
+      </div>
+      <div class="sol-card" style="border-left-color:var(--yellow)">
+        <h3 style="color:var(--yellow)">🏠 Individual Action</h3>
+        <p>Reduce, reuse, recycle — choose sustainable products, reduce energy consumption, and make conscious consumer choices daily.</p>
+      </div>
+      <div class="sol-card" style="border-left-color:#FF7070">
+        <h3 style="color:#FF7070">🔬 Innovation</h3>
+        <p>Renewable energy breakthroughs, carbon capture technology, biodegradable alternatives, and electric mobility solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="sectors-section" id="act">
+  <div class="section-inner">
+    <div class="section-tag">Practical Steps</div>
+    <h2 class="section-title">Action by Sector</h2>
+    <p class="section-desc">Concrete steps every sector can take starting today.</p>
+    <div class="sector-grid">
+      <div class="sector-card">
+        <div class="sector-header" style="background:rgba(2,62,138,0.5)">
+          <h3>🏭 Industry</h3>
+        </div>
+        <div class="sector-body">
+          <div class="sector-item">Adopt clean production technologies</div>
+          <div class="sector-item">Install pollution control equipment</div>
+          <div class="sector-item">Switch to renewable energy sources</div>
+          <div class="sector-item">Implement zero-liquid discharge systems</div>
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-header" style="background:rgba(45,106,79,0.5)">
+          <h3>🌾 Agriculture</h3>
+        </div>
+        <div class="sector-body">
+          <div class="sector-item">Use organic farming methods</div>
+          <div class="sector-item">Reduce chemical fertilizer use</div>
+          <div class="sector-item">Implement precision irrigation</div>
+          <div class="sector-item">Adopt crop rotation practices</div>
+        </div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-header" style="background:rgba(231,111,81,0.4)">
+          <h3>🏠 Individuals</h3>
+        </div>
+        <div class="sector-body">
+          <div class="sector-item">Use public transport or carpool</div>
+          <div class="sector-item">Reduce single-use plastics</div>
+          <div class="sector-item">Compost organic waste at home</div>
+          <div class="sector-item">Choose energy-efficient appliances</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3RS -->
+<section class="rs-section">
+  <div class="section-inner">
+    <div class="section-tag">Core Principle</div>
+    <h2 class="section-title">The 3Rs Framework</h2>
+    <p class="section-desc">The most effective individual strategy to reduce pollution globally.</p>
+    <div class="rs-grid">
+      <div class="r-card">
+        <div class="r-circle" style="background:rgba(27,67,50,0.8); border: 2px solid var(--dark);">↓</div>
+        <h3 style="color:var(--dark)">Reduce</h3>
+        <p>Minimize waste at the source by consuming less and choosing sustainable alternatives over disposable products.</p>
+      </div>
+      <div class="r-card">
+        <div class="r-circle" style="background:rgba(45,106,79,0.8); border: 2px solid var(--mid);">↺</div>
+        <h3 style="color:var(--mid)">Reuse</h3>
+        <p>Extend the life of products — repair, donate, or repurpose items before discarding them as waste.</p>
+      </div>
+      <div class="r-card">
+        <div class="r-circle" style="background:rgba(82,183,136,0.8); border: 2px solid var(--light);">♻</div>
+        <h3 style="color:var(--light)">Recycle</h3>
+        <p>Convert waste materials into new products to reduce raw resource consumption and landfill buildup.</p>
+      </div>
+    </div>
+    <div class="green-bar">
+      🌞 Solar &amp; Wind Energy &nbsp;|&nbsp; ⚡ Electric Vehicles &nbsp;|&nbsp; 🌿 Sustainable Agriculture &nbsp;|&nbsp; 💧 Water Conservation &nbsp;|&nbsp; 🌳 Reforestation
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner">
+    <p class="cta-quote">"The Earth Does Not Belong to Us — <em>We Belong to the Earth.</em>"</p>
+    <div class="divider"></div>
+    <p class="cta-sub">Every individual action matters. Together we can:</p>
+    <ul class="cta-actions">
+      <li>🌱 Plant trees & protect green spaces</li>
+      <li>🚮 Dispose waste responsibly — never litter</li>
+      <li>📢 Spread awareness & educate others</li>
+      <li>🗳 Support eco-friendly policies & leaders</li>
+    </ul>
+    <p class="cta-urgency">Act Now — Future Generations Are Counting On Us</p>
+  </div>
+</section>
+
+<footer>
+  Environmental Pollution Awareness &nbsp;·&nbsp; Types · Causes · Solutions &nbsp;·&nbsp; Protecting Our Planet
+</footer>
+
+<script>
+  // Scroll-triggered fade-in for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.style.opacity = '1';
+        el.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.type-card, .stat-card, .sol-card, .sector-card, .r-card, .list-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
